@@ -1,0 +1,420 @@
+/**
+ Estilo CSS Porlet de Pre entrevistas
+*/
+
+*.divContenedorPorletDetalle{
+    min-height: 440px;
+    border-bottom: 1px solid silver;
+    border-right: 1px solid silver;
+
+    -webkit-border-radius: 4px;
+    border-radius: 4px;	
+}
+
+*.divTituloSegmento{
+    background-image: url(./../img/fondo-opaco-div.png);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    height: 32px;
+    vertical-align: middle;
+    display: table-cell;
+    width: 232px;
+    font-weight: normal;
+    border: 1px dashed white;
+}
+
+*.divTituloPortlet{
+    width: 650px;
+    height: 20px;
+    vertical-align: middle;
+    display: table-cell;
+    background-image: url(./../img/fondo-div-titulo-portlet.png);
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(150, 152, 150, 0.5);
+    box-shadow: 1px 1px 1px 1px rgba(150, 152, 150, 0.5);
+    font-family: 'Open Sans', sans-serif;
+}
+
+*.divContenedorComandos{
+    margin-top:10px;
+    width:88%;
+    height: 40px;
+    border-top: 1px dashed silver;
+    border-bottom: 1px dashed silver;
+}
+
+*.divContenedorComandosInterno{
+    width: 90%;
+    border-left: 1px dashed silver;
+    border-right: 1px dashed silver;
+    height: 40px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+*.btn-activate{
+    height: 30px !important;
+    padding: 0px !important;
+    font-size: 13px !important;
+    font-weight: normal !important;
+}
+
+*.btn-activate:hover{
+    font-weight: normal !important;
+}
+
+*.btn-activate:hover{
+    font-weight: 300 !important;
+}
+
+*.ui-state-error{
+    background-color: #FCF8E3 !important;
+    border-color: #EED3D7 !important;
+}
+
+*.txtEntradaInformacionTipoTexto{
+    margin-top: 5px !important; 
+    width: 638px !important;
+    font-size: 12px;
+    overflow: visible;  
+    -webkit-box-shadow: 1px 1px 2px 2px rgba(150, 150, 150, 1) !important;
+    box-shadow: 1px 1px 2px 2px rgba(150, 150, 150, 1) !important;
+}
+
+*.txtDesplegable{
+    width: 177px !important;
+    font-size: 12px  !important;
+    color:black !important;
+    font-weight: 600 !important;
+}
+
+*.txtEntradaInformacionTipoTexto:focus{
+    background: #F4F8FA none !important;
+    border-color: #0054A2 !important;
+}
+
+*.txtSelOneRadio{
+    margin-left: 18px;	
+}
+
+*.txtSelOneRadio>tbody>tr>td{
+    padding-left: 0px;
+    padding-right: 4px;
+    text-align: center;
+}
+
+*.txtSelOneRadio>tbody>tr>td>label{
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    color:Gray;
+}
+
+*.txtLabelContenido{
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    color:Gray;	
+}
+
+*.txtLabel{
+    font-size:13px;font-weight: 600;	
+}
+
+*.txtDesplegablePopup{
+    width: 212px !important;
+    height: 25px  !important;
+    font-size: 12px  !important;
+    color:black !important;
+    font-weight: 600 !important;
+    margin-left: 10px !important;
+    margin-top: 5px !important;
+    margin-right: 5px !important;
+}
+
+*.txtLabeInternoPopup{
+    font-size:13px;font-weight: 300;font-family: 'Open Sans', sans-serif;
+    color:#494848 !important;
+}
+
+*.txtEntradaPopup{
+    color:black !important;
+    font-size:13px !important;
+    font-weight: 600 !important;
+    font-family: 'Open Sans', sans-serif !important;
+    width: 200px !important;
+    margin-left: 10px !important;
+    margin-top: 5px !important;
+    margin-right: 5px !important;
+    height: 13px !important;
+    text-align: center !important;
+}
+
+*.txtFechaPopup>input{
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    font-family: 'Open Sans', sans-serif !important;
+    height: 13px !important;
+    text-align: center !important;
+
+    border: 1px solid silver !important;
+    -moz-box-shadow: 0px 0px 0px white, inset 0 0px 0px white !important;
+    -webkit-box-shadow: 0px 0px 0px white, inset 0 0px 0px white !important;
+    box-shadow: 0px 0px 0px white, inset 0 0px 0px white !important;
+    color:black !important;
+}
+
+*.ui-datepicker-trigger{
+    margin-top: -10px;
+}
+
+*.hasDatepicker{
+    width: 172px;
+    text-align: center !important;
+    font-size: 13px
+        font-family 'Open Sans', sans-serif !important;
+    color: black !important;
+    font-weight: 600 !important;	
+}
+
+*.ui-datepicker-trigger{
+    width: 26px !important;
+    height: 24px !important;;
+}
+
+*.ui-state-active{
+    background-color: white !important;
+}
+
+*.ui-datepicker-calendar>tbody>tr>td>a{
+    color:black !important;
+    font-size: 11px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+*.hrNormal{
+    margin: 0px;
+}
+
+*.ui-state-error{
+    background-color: #FCF8E3 !important;
+    border-color: #EED3D7 !important;
+}
+
+/* all */
+::-webkit-input-placeholder { 
+    color:Silver !important;
+    font-size:11px;
+    font-weight: normal; 
+    text-align: center !important;;
+}
+
+::-moz-placeholder { 
+    color:Silver !important;
+    font-size:11px !important;
+    font-weight: !important;
+    text-align: !important;
+} /* firefox 19+ */
+
+input:-moz-placeholder {
+    color:Silver !important;
+    font-size:11px !important;
+    font-weight: normal !important;
+    text-align: center !important;
+}
+
+*.ui-dt-c>span{
+    font-weight:300 !important;
+    font-size: 13px;
+    color: Black;
+    text-align: center !important;
+    font-family: 'Open Sans', sans-serif;	
+}
+
+*.ui-dt-c{
+    font-weight:600 !important;
+    font-size: 12px !important;
+    color: black;
+    text-align: center !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+*.ui-datatable>table>thead>tr>th{
+    background: #EBEBEB linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) !important;
+    background: #EBEBEB -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0))) !important;
+    background: #EBEBEB -moz-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) !important;
+}
+
+*.ui-autocomplete-panel{
+    width: 560px !important;
+    margin-left: -65px !important;
+}
+
+*.ui-autocomplete>input{
+    width: 545px !important;
+    height: 15px !important;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: black !important;
+}
+
+*.ui-state-highlight{
+    color:Gray !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 14px;
+    text-shadow: none !important;	
+    border:1px solid silver !important;
+
+    background-image: linear-gradient(bottom, rgb(245,245,245) 81%, rgb(245,245,245) 64%) !important;;
+    background-image: -o-linear-gradient(bottom, rgb(245,245,245) 81%, rgb(245,245,245) 64%) !important;;
+    background-image: -moz-linear-gradient(bottom, rgb(245,245,245) 81%, rgb(245,245,245) 64%) !important;;
+    background-image: -webkit-linear-gradient(bottom, rgb(245,245,245) 81%, rgb(245,245,245) 64%) !important;;
+    background-image: -ms-linear-gradient(bottom, rgb(245,245,245) 81%, rgb(245,245,245) 64%) !important;;
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.81, rgb(245,245,245)),
+        color-stop(0.64, rgb(245,245,245))
+        ) !important;;
+}
+
+*.ui-autocomplete>input{
+    width: 545px !important;
+    margin-left: -4px;
+}
+
+*.divNotorioInformacionExtra{
+    width: 98%;
+    min-height: 28px;
+    border: 1px solid silver;
+    margin-top: 4px;
+    border-radius:4px;
+}
+
+*.divNotorioInformacionExtra>table{
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+*.divNotorioInformacionExtra>table>tbody>tr>td{
+    margin-top: 6px;
+    margin-left: 6px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    text-align: center;
+}
+
+
+*.divErrorValidacion>div{
+    margin-top: 2px !important;
+    font-size: 13px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 300 !important;
+    -webkit-border-radius: 4px !important;
+    border-radius: 4px !important;
+    color: #201E30 !important;
+    background-color: #FCF8E3 !important;
+    border-color: #EED3D7 !important;	
+}
+
+*.divErrorValidacion{
+    margin-right: 5px !important; 
+}
+
+*.ui-tabs-panel{
+    font-family: 'Open Sans', sans-serif !important;	
+}
+
+*.ui-state-default>a{
+    font-size: 12px !important;;
+    color: #4E4E4E !important;
+}
+
+*.ui-widget-content{
+    border: white !important;
+    border-right: 1px silver solid !important;
+}
+
+*.ui-tabs-nav{
+    border: 1px solid silver !important;;
+    border-radius: 4px !important;;
+}
+
+*.ui-tabs-nav>li.ui-state-default{
+    background-color: #DFDFDF !important;
+}
+
+*.ui-tabs-nav>li.ui-state-active{
+    background-color: white !important;
+}
+
+
+/**
+ Estilos pupup ingreso / Modificacion academica
+*/
+#overlay-popupPariente{
+    background-image: url(./../img/fondo-opaco-div.png);
+    cursor:wait !important;
+    position: fixed; 
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+#popup-idiomas-Pariente {
+    color:#919191; 
+    background-color:#DADADA;
+    border-bottom:1px solid #ccc; 
+    font-weight:bold; 
+    padding:6px 8px;
+    text-shadow:0 1px 0 #f4f4f4;
+    background-position: top;	
+}
+#modalpopupPariente{cursor: auto !important;background-color:Silver !important; color:#000; font: 14px/16px "Open Sans",Arial,sans-serif; padding-bottom:1px; width:660px !important; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:0 0 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000;}
+
+*.classColIzq{
+    max-width: 95px !important;
+    width: 95px !important;
+    text-align: center;
+}
+
+*.classColIzq>span{
+    text-align: center !important;
+}
+
+*.classColDer{
+    margin-left: 8px !important;
+}
+
+*.classColDer>table>tbody>tr>td{
+    max-width: 70px !important;
+    width: 70px !important;
+}
+
+
+
+
+/**
+  Estilos de los PopupJQuery
+*/
+#osx-modal-content, #osx-modal-data {display:none;}
+/* Overlay */
+#osx-overlay {background-color:#000; cursor:wait;}
+
+/* Container */
+#osx-container {top: 100px !important; background-color:#eee; color:#000; font: 14px/16px "Open Sans",Arial,sans-serif; padding-bottom:4px; width:640px !important; -moz-border-radius-bottomleft:6px; -webkit-border-bottom-left-radius:6px; -moz-border-radius-bottomright:6px; -webkit-border-bottom-right-radius:6px; border-radius:0 0 6px 6px; -moz-box-shadow:0 0 64px #000; -webkit-box-shadow:0 0 64px #000; box-shadow:0 0 64px #000;}
+#osx-container a {color:#ddd;}
+#osx-container #osx-modal-title {color:#000; background-color:#ddd; border-bottom:1px solid #ccc; font-weight:bold; padding:6px 8px; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close {display:none; position:absolute; right:0; top:0;}
+#osx-container .close a {display:block; color:#777; font-weight:bold; padding:6px 12px 0; text-decoration:none; text-shadow:0 1px 0 #f4f4f4;}
+#osx-container .close a:hover {color:#000;}
+#osx-container #osx-modal-data {font-size:12px; padding:6px 12px;}
+#osx-container h2 {margin:10px 0 6px;}
+#osx-container p {margin-bottom:10px;}
+#osx-container span {color:#777;}

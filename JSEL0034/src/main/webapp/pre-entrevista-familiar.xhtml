@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href ="./resources/css/newcss1.css"/>
+        <!-- Load JavaScript files Elemento Popup. -->
+        <script type="text/javascript"
+        src="/jsel0011-portlet/js/jquery.simplemodal.js"></script>
+        <script type="text/javascript" src="/jsel0011-portlet/js/osx.js"></script>
+    </h:head>
+    <h:body>
+        <script type="text/javascript">
+            //<![CDATA[
+            window.onload = function () {
+                document.getElementById(
+                        document.forms[0].id + ':imagenPerfilUsuario').click();
+            };
+            //]]>
+        </script>
+        <h:form id="forma_datos_familiales">
+            <p:growl id="msj" redisplay="true" showDetail="true" life="5000">
+                <p:autoUpdate />
+            </p:growl>
+            <p:tooltip  trackMouse="true"/>
+            <!-- Titulo encabezado portlet -->
+            <div align="center">
+                <div style="min-height: 4px" />
+                <div class="divInformacionBloqueoCampos" align="right">
+                    <h:outputText
+                        style="margin-right:12px;font-size:13px;font-weight: 600;"
+                        value="Informacion Entorno Familiar" />
+                </div>
+            </div>
+            <div  align="center"  style="min-height: 50px;font-family: 'Open Sans', sans-serif !important;" >
+                <h:panelGrid columns="4" >
+                    <h:outputText value="Numero de Hijos" styleClass="txtLabel" />
+                    <p:inputText id="txtNumHijos" value="#{informacionFamiliarManagedBean.entrevistaDatfijo.edfNumeroHijos}" style="width: 35px !important;margin-left: 32px !important;margin-right: 20px !important;" styleClass="txtEntradaPopup" converterMessage="Debe Ingresar un valor Numerico en el campo Numero de Hijos" validatorMessage="Debe Ingresar un valor Numerico (0-20) en el campo Numero de Hijos">
+                        <p:ajax event="blur" update="msgntxtNumHijos txtNumHijos"/>
+                        <f:validateLongRange minimum="0" maximum="20"/>
+                    </p:inputText>
+                    <h:outputText value="Cuantos Viven con Usted" styleClass="txtLabel" />
+                    <h:inputText  id="txtNumHijosVive" value="#{informacionFamiliarManagedBean.entrevistaDatfijo.edfNumHijosVivenCandt}" style="width: 35px !important;" styleClass="txtEntradaPopup" converterMessage="Debe Ingresar un valor Numerico en el campo Cuantos Viven con usted" validatorMessage="Debe Ingresar un valor Numerico (0-20) en el campo Numero de Hijos Cuantos Viven con usted">
+                        <p:ajax event="blur" update="msgntxtNumHijosVive txtNumHijosVive"/>
+                        <f:validateLongRange minimum="0" maximum="20"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <h:panelGrid columns="2" columnClasses="classColIzq,classColDer">					    
+                    <h:outputText value="Quien los Cuida" styleClass="txtLabel" />
+                    <h:selectOneRadio value="#{informacionFamiliarManagedBean.entrevistaDatfijo.edfQuienCuidaHijos}" styleClass="txtSelOneRadio">
+                        <f:selectItem itemLabel="Guarderia" itemValue="GUARDERIA" />
+                        <f:selectItem itemLabel="Familiar" itemValue="FAMILIAR" />
+                        <f:selectItem itemLabel="Conocido" itemValue="CONOCIDO" />
+                        <f:selectItem itemLabel="No Aplica" itemValue="N/A" />
+                    </h:selectOneRadio>						
+                </h:panelGrid>					
+            </div>
+
+            <!-- Titulo encabezado portlet -->
+            <div align="center">
+                <div style="min-height: 4px" />
+                <div class="divInformacionBloqueoCampos" align="right">
+                    <h:outputText
+                        style="margin-right:12px;font-size:13px;font-weight: 600;"
+                        value="Informacion de vivienda" />
+                </div>
+
+                <div style="margin-top: 12px;margin-left: 20px;font-family: 'Open Sans', sans-serif !important;" >
+                    <h:panelGrid columns="2" columnClasses="classColIzq,classColDer">
+                        <h:outputText value="Tipo Inmueble" styleClass="txtLabel" />
+                        <h:selectOneRadio value="#{informacionFamiliarManagedBean.vivienda.vivCodigo}" 
+                                          styleClass="txtSelOneRadio"
+                                          layout="responsive">
+                            <f:selectItems value="#{informacionFamiliarManagedBean.listaTipoVivienda}"/>
+                        </h:selectOneRadio>
+                        <h:outputText value="Tipo Vivienda" styleClass="txtLabel" />
+                        <h:selectOneRadio value="#{informacionFamiliarManagedBean.vivienda.tipCodigo}" 
+                                          styleClass="txtSelOneRadio"
+                                          layout="responsive">
+                            <f:selectItems value="#{informacionFamiliarManagedBean.listaTipoPropiedad}"/>
+                        </h:selectOneRadio>
+                        <h:outputText value="Aporta economicamente a Hogar" styleClass="txtLabel" />
+                        <h:selectOneRadio
+                            value="#{informacionFamiliarManagedBean.entrevistaDatfijo.edfAportaVivienda}"
+                            styleClass="txtSelOneRadio"
+                            layout="responsive">
+                            <f:selectItem itemLabel="Si" itemValue="S" />
+                            <f:selectItem itemLabel="No" itemValue="N" />
+                        </h:selectOneRadio>
+                    </h:panelGrid>
+
+                    <div  style="margin-top: 10px;">
+                        <div class="ui-g" >
+                            <div class="ui-g-12 ui-md-2 ui-lg-3">
+                                <h:outputText value="Hace cuanto vive allí?" styleClass="txtLabel" />
+                            </div>
+                            <div class="ui-g-12 ui-md-4 ui-lg-3">
+                                <h:outputText value="Año : " style="margin-left:20px !important;" />
+                                <h:selectOneMenu id="listaAnios" styleClass="txtDesplegablePopup title" value="#{informacionFamiliarManagedBean.vivienda.fechaInicialAnio}" style="width:66px !important;">
+                                    <f:selectItems value="#{informacionFamiliarManagedBean.listaAnios}" />
+                                </h:selectOneMenu>
+                            </div>
+                            <div class="ui-g-12 ui-md-4 ui-lg-3">
+                                <h:outputText value="Mes : " />
+                                <h:selectOneMenu id="listaMeses" styleClass="txtDesplegablePopup title" value="#{informacionFamiliarManagedBean.vivienda.fechaInicialMes}" style="width:105px !important;">
+                                    <f:selectItem itemValue="0" itemLabel="Enero"/>
+                                    <f:selectItem itemValue="1" itemLabel="Febrero"/>
+                                    <f:selectItem itemValue="2" itemLabel="Marzo"/>
+                                    <f:selectItem itemValue="3" itemLabel="Abril"/>
+                                    <f:selectItem itemValue="4" itemLabel="Mayo"/>
+                                    <f:selectItem itemValue="5" itemLabel="Junio"/>
+                                    <f:selectItem itemValue="6" itemLabel="Julio"/>
+                                    <f:selectItem itemValue="7" itemLabel="Agosto"/>
+                                    <f:selectItem itemValue="8" itemLabel="Septiembre"/>
+                                    <f:selectItem itemValue="9" itemLabel="Octubre"/>
+                                    <f:selectItem itemValue="10" itemLabel="Noviembre"/>
+                                    <f:selectItem itemValue="11" itemLabel="Diciembre"/>
+                                </h:selectOneMenu>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>				
+            <div>
+                <!-- Panel Validaciones -->
+                <h:panelGroup id="panelValidacionesNucleo">
+                    <div align="center" >
+                        <div class="divErrorValidacion" align="center"
+                             style="margin-top: 4px;">
+                            <p:message for="txtNumHijos" id="msgntxtNumHijos" display="text"/>
+                        </div>
+                        <div class="divErrorValidacion" align="center"
+                             style="margin-top: 4px;">
+                            <p:message for="txtNumHijosVive" id="msgntxtNumHijosVive" display="text"/>
+                        </div>
+                    </div>
+                </h:panelGroup>				
+            </div>
+            <div>
+                <!-- Titulo encabezado portlet -->
+                <div align="center">
+                    <div style="min-height: 4px" />
+                    <div class="divInformacionBloqueoCampos" align="right">
+                        <h:outputText
+                            style="margin-right:12px;font-size:13px;font-weight: 600;"
+                            value="Otros contactos y nucleo familiar" />
+                    </div>
+                </div>
+            </div>
+            <!-- Contenido forma principal -->
+            <div>
+                <!-- Contenido Formulario -->
+                <div style="min-height: 42px;font-family: 'Open Sans', sans-serif !important;">
+                    <div align="center">
+                        <p style="font-size: 12px;margin-top: 5px;text-align: center;color: #20010A;">
+                            Por favor indique los datos de todo su grupo familiar cercano.
+                            Asi mismo informe los datos de otros familiares o contactos que lo puedan ubicar de ser requerido.
+                        </p>
+                    </div>				     
+                    <p:dataTable id="Familiar"
+                                 value="#{informacionFamiliarManagedBean.nucleoFamiliar}" 
+                                 var="nucleo" 
+                                 emptyMessage="No se han encontrado parientes registrados" 
+                                 scrollable="true" 
+                                 scrollHeight="65"
+                                 tableStyle="layaout:auto">
+                        <p:column headerText="Nombres">
+                            <h:outputText value="#{nucleo.nombres}" />
+                        </p:column>
+                        <p:column headerText="Apellidos">
+                            <h:outputText value="#{nucleo.apellidos}" />
+                        </p:column>
+                        <p:column headerText="Parentesco">
+                            <h:outputText value="#{nucleo.parDescripcion}" />
+                        </p:column>
+                        <p:column headerText="Ocupacion">
+                            <h:outputText value="#{nucleo.tocuDescripcion}" />
+                        </p:column>						
+                        <p:column headerText="Celular">
+                            <h:outputText value="#{nucleo.celular==0?'':(nucleo.celular)}" />
+                        </p:column>
+                        <p:column headerText="Conviven" >
+                            <h:outputText value="#{nucleo.viveConCandidato?'SI':'NO'}"  title="#{nucleo.viveConCandidato?'SI Vive con el candidato':'NO Vive con el candiato'}" style="font-weight:bold !important;"/>
+                        </p:column>
+                        <p:column headerText=".::." >
+                            <p:commandLink id="editarRegistro"
+                                           title="Presione para Modificar este Pariente"
+                                           action="#{informacionFamiliarManagedBean.modificarRegistroNucleoFamiliar}"
+                                           update=":forma_datos_familiales:modalEdicionRegistro :forma_datos_familiales:panelAgregarRegistro"
+                                           partialSubmit="true">
+                                <f:setPropertyActionListener
+                                    target="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro}"
+                                    value="#{nucleo}" />
+                                <h:graphicImage value="resources/img/icons/icon-edit-exp.png"
+                                                width="16" style="margin-top: -4px !important;" />
+                            </p:commandLink>
+                        </p:column>
+                        <p:column headerText=":..:" >
+                            <p:commandLink id="eliminarRegistro"
+                                           title="Presione para Eliminar este Pariente"
+                                           action="#{informacionFamiliarManagedBean.eliminarRegistroNucleoFamiliar}"
+                                           update="@form :panelPopup" partialSubmit="true">
+                                <f:setPropertyActionListener
+                                    target="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro}"
+                                    value="#{nucleo}" />
+                                <h:graphicImage value="resources/img/icons/icon-delete-exp.png"
+                                                width="16" style="margin-top: -4px !important;" />
+                            </p:commandLink>
+                        </p:column>
+                    </p:dataTable>
+                    <div align="right" style="margin-top: 16px;">
+                        <h:panelGrid id="panelAgregarRegistro">
+                            <p:commandLink id="agregarRegistro"
+                                           title="Presione para Agregar un nuevo Pariente"
+                                           action="#{informacionFamiliarManagedBean.agregarRegistroNucleoFamiliar}"
+                                           update=":forma_datos_familiales:modalEdicionRegistro panelAgregarRegistro"
+                                           style="margin-right:16px;"
+                                           rendered="#{!informacionFamiliarManagedBean.capaRenderizadoParientesPopup}">
+                                <h:graphicImage value="resources/img/icons/icon-add-exp.png" width="16"
+                                                style="width:16px;" />
+                            </p:commandLink>
+                        </h:panelGrid>
+                    </div>
+                </div>
+                <div>
+                    <h:panelGroup id="modalEdicionRegistro">
+                        <h:panelGroup rendered="#{informacionFamiliarManagedBean.capaRenderizadoParientesPopup}">
+                            <!-- Popup Idioma -->
+                            <div id="overlay-popupPariente">
+                                <div align="center" style="margin-top: 10px !important;">
+                                    <div id="modalpopupPariente">
+                                        <div id="popup-idiomas-Pariente">
+                                            <h:outputText style="font-family: 'Open Sans', sans-serif;"
+                                                          value="Agregar / Modificar Pariente" />
+                                        </div>
+                                        <div
+                                            style="min-height: 190px !important; min-width: 660px; background-color: #F7F7F7 !important;">
+                                            <div style="min-height: 150px;" align="center">
+                                                <div style="width: 95%;">
+                                                    <h:panelGrid columns="4">
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Nombres" />
+                                                        <p:inputText styleClass="txtEntradaPopup title"
+                                                                     id="txtNombres"
+                                                                     value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.nombres}"
+                                                                     required="true"
+                                                                     requiredMessage="Debe ingresar al Menos un Nombre" />
+
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Apellidos" />
+                                                        <p:inputText styleClass="txtEntradaPopup title"
+                                                                     id="txtApellidos"
+                                                                     value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.apellidos}"
+                                                                     required="true"
+                                                                     requiredMessage="Debe ingresar al Menos un Apellido">
+
+                                                        </p:inputText>
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Parentesco" />
+                                                        <h:selectOneMenu id="listaParentesco"
+                                                                         styleClass="txtDesplegablePopup title"
+                                                                         value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.parSigla}">
+                                                            <f:selectItems
+                                                                value="#{informacionFamiliarManagedBean.listaParentesco}" />
+                                                        </h:selectOneMenu>
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Ocupacion" />
+                                                        <h:selectOneMenu id="listaOcupacion"
+                                                                         styleClass="txtDesplegablePopup title"
+                                                                         value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.tocuId}">
+                                                            <f:selectItems
+                                                                value="#{informacionFamiliarManagedBean.listaOcupaciones}" />
+                                                        </h:selectOneMenu>
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Nivel Escolar" />
+                                                        <h:selectOneMenu id="listaNivelEstudio"
+                                                                         styleClass="txtDesplegablePopup title"
+                                                                         value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.tteCodigo}">
+                                                            <f:selectItems
+                                                                value="#{informacionFamiliarManagedBean.listaNivelEducativo}" />
+                                                        </h:selectOneMenu>
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Celular" />
+                                                        <p:inputText styleClass="txtEntradaPopup title" id="txtCelular" value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.celular}" converterMessage="Ingrese un Numero de Celular Valido" validatorMessage="Ingrese un numero de Celular Valido (10 Digitos)" >
+                                                            <p:ajax event="blur" update="msgTxtCelular @this"/>
+                                                        </p:inputText>
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Fecha de Nacimiento" />
+                                                        <p:calendar label="Fecha de Nacimiento" 
+                                                                    id="fechaNacimiento"
+                                                                    styleClass="txtFechaPopup" pattern="yyyy/MM/dd" yearRange="c-80:c+80"
+                                                                    value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.fechaNacimiento}"
+                                                                    showOn="button" navigator="true" mindate="#{informacionFamiliarManagedBean.maxFecCalendar}" maxdate="#{informacionFamiliarManagedBean.minFecCalendar}"
+                                                                    style="margin-left: 10px !important;">
+                                                            <p:ajax event="dateSelect" update="fechaNacimiento" />
+                                                        </p:calendar>
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Vive con Usted" />
+                                                        <h:selectBooleanCheckbox
+                                                            value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.viveConCandidato}"
+                                                            style="margin-left: 4%;" />
+                                                        <h:outputText styleClass="txtLabeInternoPopup"
+                                                                      value="Genero" />
+                                                        <h:selectOneMenu id="listaGenero"
+                                                                         styleClass="txtDesplegablePopup title"
+                                                                         value="#{informacionFamiliarManagedBean.nucleoFamiliarRegistro.tnfGenero}">
+                                                            <f:selectItems
+                                                                value="#{informacionFamiliarManagedBean.listaGenero}" />
+                                                        </h:selectOneMenu>
+                                                    </h:panelGrid>
+                                                </div>
+
+                                                <!-- Panel Validaciones -->
+                                                <h:panelGroup id="panelValidacionesPariente">
+                                                    <div align="center"
+                                                         style="position: fixed; margin-top: -100px; margin-left: 610px; width: 222px;">
+                                                        <div class="divErrorValidacion" align="center" style="margin-top: 4px;">
+                                                            <p:message for="txtNombres" id="msgntxtNombres" display="text" />
+                                                        </div>
+                                                        <div class="divErrorValidacion" align="center" style="margin-top: 4px;">
+                                                            <p:message for="txtApellidos" id="msgntxtApellidos"	display="text" />
+                                                        </div>
+                                                        <div class="divErrorValidacion" align="center" style="margin-top: 4px;">
+                                                            <p:message for="txtCelular" id="msgTxtCelular"	display="text" />
+                                                        </div>
+                                                    </div>
+                                                </h:panelGroup>
+
+                                            </div>
+                                            <!-- Comandos Popup-->
+                                            <div align="center" style="margin-top: 10px;">
+                                                <div class="divContenedorComandos" align="center"
+                                                     style="margin-top: 0px !important;">
+                                                    <div class="divContenedorComandosInterno">
+                                                        <p:commandButton value="Guardar"
+                                                                         styleClass="btn btn-primary btn-activate"
+                                                                         title="Presione aqui para Guardar" update="@form"
+                                                                         action="#{informacionFamiliarManagedBean.guardar}" />
+                                                        <p:commandButton value="Cancelar"
+                                                                         styleClass="btn btn-primary btn-activate"
+                                                                         title="Presione aqui para Cancelar los Cambios"
+                                                                         update="@form"
+                                                                         action="#{informacionFamiliarManagedBean.cancelarEdicion}"
+                                                                         immediate="true" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="min-height: 20px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                </div>
+
+                <div>
+                    <!-- Titulo encabezado portlet -->
+                    <div align="center">
+                        <div style="min-height: 4px" />
+                        <div class="divInformacionBloqueoCampos" align="right">
+                            <h:outputText
+                                style="margin-right:12px;font-size:13px;font-weight: 600;"
+                                value="Referencias personales" />
+                        </div>
+                    </div>
+                </div>
+
+                <!--Carga archivo digital diploma -->
+                <div class="divContenedorCargaArchivos" 
+                     align="center">
+                    <div>
+                        <h:outputLabel styleClass="txtLabelContenido" 
+                                       value="Aqui puede cargar los archivos digitales correspondientes a sus referencias personales"/>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <p:fileUpload label="Cargar archivo"
+                                      fileUploadListener="#{informacionFamiliarManagedBean.cargarRefFamiliar}"
+                                      auto="true"
+                                      onstart="PF('statusDialog').show()"
+                                      oncomplete="PF('statusDialog').hide()"/>
+                    </div>
+                </div>
+
+                <!-- Comandos -->
+                <div align="center">
+                    <div class="divContenedorComandos" align="center">
+                        <div class="divContenedorComandosInterno">
+                            <p:commandButton value="#{informacionFamiliarManagedBean.value}" process="@form"
+                                             styleClass="btn btn-primary btn-activate"
+                                             title="Presione aqui para #{informacionFamiliarManagedBean.value}" update="@form"
+                                             action="#{informacionFamiliarManagedBean.guardar}"
+                                             onstart="PF('statusDialog').show()"
+                                             oncomplete="PF('statusDialog').hide();
+                                             parent.document.getElementById('formaOpciones:actionReloadPercent').click();"/>
+                        </div>
+                    </div>
+                </div>				
+            </div>
+
+        </h:form>
+
+        <!-- Modal Jquery -->
+        <h:panelGroup id="panelPopup">
+            <div id='content'>
+                <!-- modal content -->
+                <div id="osx-modal-content">
+                    <div id="osx-modal-title" align="center">
+                        <h:outputText style="font-family: 'Open Sans', sans-serif;"
+                                      value="#{sessionScope.popup_titulo}" />
+                    </div>
+                    <div class="close">
+                        <a href="#" class="simplemodal-close">x</a>
+                    </div>
+                    <div id="osx-modal-data" align="center">
+                        <h2>
+                            <h:outputText style="font-family: 'Open Sans', sans-serif;"
+                                          value="#{sessionScope.popup_subtitulo}" />
+                        </h2>
+                        <p>
+                            <h:outputText
+                                style="font-family: 'Open Sans', sans-serif;font-size:13px !important;font-weight: 300 !important;"
+                                value="#{sessionScope.popup_mensaje}" />
+                        </p>
+                        <p:commandButton value="Aceptar"
+                                         styleClass="btn btn btn-activate simplemodal-close" />
+                    </div>
+                </div>
+            </div>
+        </h:panelGroup>
+    </h:body>
+
+    <p:dialog id="statusDialog"  widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+        <p:graphicImage value="resources/img/cargar_4.gif" />
+    </p:dialog> 
+
+</f:view>
